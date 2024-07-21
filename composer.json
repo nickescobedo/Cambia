@@ -1,0 +1,39 @@
+{
+    "name": "nickescobedo/cambia",
+    "description": "Easily cast your request attributes.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NickEscobedo\\Cambia\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NickEscobedo\\Cambia\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nick Escobedo",
+            "email": "nick@nickescobedo.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.1"
+    },
+    "scripts": {
+        "lint": [
+            "@php vendor/bin/phpstan analyse"
+        ]
+    }
+}
