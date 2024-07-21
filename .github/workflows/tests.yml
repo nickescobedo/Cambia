@@ -27,7 +27,6 @@ jobs:
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
-    services:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
