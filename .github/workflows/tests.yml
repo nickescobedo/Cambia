@@ -50,10 +50,4 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit --stop-on-failure --coverage-clover=clover.xml
-
-      - name: Upload coverage
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.php }}-${{ matrix.laravel }}-coverage.xml
-          path: clover.xml
+        run: vendor/bin/phpunit
