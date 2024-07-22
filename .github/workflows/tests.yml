@@ -50,4 +50,4 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit --stop-on-failure --coverage-php=coverage.php
+        run: vendor/bin/phpunit --stop-on-failure --coverage-clover=coverage.xml
