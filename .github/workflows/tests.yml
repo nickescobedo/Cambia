@@ -53,6 +53,7 @@ jobs:
         run: vendor/bin/phpunit --stop-on-failure --coverage-clover=clover.xml
 
       - name: Upload coverage
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: clover
+          name: coverage
+          path: clover.xml
