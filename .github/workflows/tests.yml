@@ -50,4 +50,14 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit --stop-on-failure --coverage-clover=coverage.xml
+        run: vendor/bin/phpunit --stop-on-failure --coverage-clover=clover.xml
+
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+
+      - name: Code Coverage Summary Report
+        uses: saschanowak/CloverCodeCoverageSummary@v1.0.0
+        with:
+          filename: clover.xml
