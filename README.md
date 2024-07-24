@@ -1,10 +1,10 @@
 # About
-Cast request input.
+Cast request input in Laravel.
 
 ## Installation
 `composer require nickescobedo/cambia`
 
-## Usage
+## Basic Usage
 1. Add `NickEscobedo\Cambia\CastRequestAttributes` trait to your request class.
 1. Add a `casts` function to your request class that returns an array.
 1. Access casts via request attributes `$request->attributes->get('inputKey')`. Note: The request key must have be validated in rules before it will attempt to cast.
@@ -14,10 +14,11 @@ Cast request input.
 class Cast extends FormRequest
 {
     use CastRequestAttributes;
+    
     public function rules(): array
     {
         return [
-            'toBoolean' => 'string',
+            'toBoolean' => 'string', // Fields not present in validation will not cast
         ];
     }
 
@@ -29,4 +30,4 @@ class Cast extends FormRequest
     }
 }
 ```
-`$request->attributes->get('toBoolean')` will return a boolean value.
+`$request->castedInput('toBoolean')` will return a boolean value.

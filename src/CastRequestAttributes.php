@@ -67,6 +67,11 @@ trait CastRequestAttributes
         }
     }
 
+    public function castedInput(string $key, mixed $default = null): mixed
+    {
+        return $this->attributes->get($key, $default);
+    }
+
     public function getCasts()
     {
         return $this->casts();

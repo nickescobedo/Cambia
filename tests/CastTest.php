@@ -62,50 +62,50 @@ class CastTest extends TestCase
 
         $request->validateResolved();
 
-        $this->assertSame(12345, $request->attributes->get('toInt'));
-        $this->assertSame(12345, $request->attributes->get('toInteger'));
+        $this->assertSame(12345, $request->castedInput('toInt'));
+        $this->assertSame(12345, $request->castedInput('toInteger'));
 
-        $this->assertSame(12345.67, $request->attributes->get('toReal'));
-        $this->assertSame(12345.67, $request->attributes->get('toFloat'));
-        $this->assertSame(12345.67, $request->attributes->get('toDouble'));
+        $this->assertSame(12345.67, $request->castedInput('toReal'));
+        $this->assertSame(12345.67, $request->castedInput('toFloat'));
+        $this->assertSame(12345.67, $request->castedInput('toDouble'));
 
-        $this->assertSame('112345.12', $request->attributes->get('toString'));
+        $this->assertSame('112345.12', $request->castedInput('toString'));
 
-        $this->assertSame(true, $request->attributes->get('toBool'));
-        $this->assertSame(false, $request->attributes->get('toBool2'));
-        $this->assertSame(true, $request->attributes->get('toBoolean'));
-        $this->assertSame(false, $request->attributes->get('toBoolean2'));
+        $this->assertSame(true, $request->castedInput('toBool'));
+        $this->assertSame(false, $request->castedInput('toBool2'));
+        $this->assertSame(true, $request->castedInput('toBoolean'));
+        $this->assertSame(false, $request->castedInput('toBoolean2'));
 
-        $this->assertInstanceOf(\stdClass::class, $request->attributes->get('toObject'));
+        $this->assertInstanceOf(\stdClass::class, $request->castedInput('toObject'));
 
-        $this->assertSame([1], $request->attributes->get('toArray'));
-        $this->assertSame(['key' => 'value'], $request->attributes->get('toJson'));
+        $this->assertSame([1], $request->castedInput('toArray'));
+        $this->assertSame(['key' => 'value'], $request->castedInput('toJson'));
 
-        $this->assertInstanceOf(Collection::class, $request->attributes->get('toCollection'));
-        $this->assertSame([1, 2, 3], $request->attributes->get('toCollection')->all());
+        $this->assertInstanceOf(Collection::class, $request->castedInput('toCollection'));
+        $this->assertSame([1, 2, 3], $request->castedInput('toCollection')->all());
 
-        $this->assertInstanceOf(Carbon::class, $request->attributes->get('toDate'));
+        $this->assertInstanceOf(Carbon::class, $request->castedInput('toDate'));
 
-        $this->assertInstanceOf(Carbon::class, $request->attributes->get('toDateTime'));
-        $this->assertSame('2021-01-01 12:12:12', $request->attributes->get('toDateTime')->format('Y-m-d H:i:s'));
-        $this->assertInstanceOf(Carbon::class, $request->attributes->get('toCustomDateTime'));
-        $this->assertSame('2021-01-01 12:00:12', $request->attributes->get('toCustomDateTime')->format('Y-m-d H:i:s'));
+        $this->assertInstanceOf(Carbon::class, $request->castedInput('toDateTime'));
+        $this->assertSame('2021-01-01 12:12:12', $request->castedInput('toDateTime')->format('Y-m-d H:i:s'));
+        $this->assertInstanceOf(Carbon::class, $request->castedInput('toCustomDateTime'));
+        $this->assertSame('2021-01-01 12:00:12', $request->castedInput('toCustomDateTime')->format('Y-m-d H:i:s'));
 
-        $this->assertInstanceOf(CarbonImmutable::class, $request->attributes->get('toImmutableDate'));
-        $this->assertSame('2022-01-01', $request->attributes->get('toImmutableDate')->format('Y-m-d'));
+        $this->assertInstanceOf(CarbonImmutable::class, $request->castedInput('toImmutableDate'));
+        $this->assertSame('2022-01-01', $request->castedInput('toImmutableDate')->format('Y-m-d'));
 
 
-        $this->assertInstanceOf(CarbonImmutable::class, $request->attributes->get('toImmutableDateTime'));
-        $this->assertSame('2022-01-01 12:12:12', $request->attributes->get('toImmutableDateTime')->format('Y-m-d H:i:s'));
+        $this->assertInstanceOf(CarbonImmutable::class, $request->castedInput('toImmutableDateTime'));
+        $this->assertSame('2022-01-01 12:12:12', $request->castedInput('toImmutableDateTime')->format('Y-m-d H:i:s'));
 
-        $this->assertInstanceOf(CarbonImmutable::class, $request->attributes->get('toImmutableCustomDateTime'));
-        $this->assertSame('2022-01-01 12:00:12', $request->attributes->get('toImmutableCustomDateTime')->format('Y-m-d H:i:s'));
+        $this->assertInstanceOf(CarbonImmutable::class, $request->castedInput('toImmutableCustomDateTime'));
+        $this->assertSame('2022-01-01 12:00:12', $request->castedInput('toImmutableCustomDateTime')->format('Y-m-d H:i:s'));
 
-        $this->assertSame(Carbon::parse('2023-01-01 12:12:12')->timestamp, $request->attributes->get('toTimestamp'));
+        $this->assertSame(Carbon::parse('2023-01-01 12:12:12')->timestamp, $request->castedInput('toTimestamp'));
 
-        $this->assertSame(Status::Pending, $request->attributes->get('toEnum'));
+        $this->assertSame(Status::Pending, $request->castedInput('toEnum'));
 
-        $this->assertSame(['key' => 'value'], $request->attributes->get('classCastableJson'));
+        $this->assertSame(['key' => 'value'], $request->castedInput('classCastableJson'));
     }
 
     public function testExceptionThrowForInvalidCastClass(): void
