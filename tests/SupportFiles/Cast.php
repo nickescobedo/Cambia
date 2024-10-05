@@ -32,6 +32,7 @@ class Cast extends FormRequest
             'toJson' => 'string',
 
             'toCollection' => 'string',
+            'toCollection2' => 'array',
 
             'toDate' => 'date',
 
@@ -75,6 +76,7 @@ class Cast extends FormRequest
             'toJson' => 'json',
 
             'toCollection' => 'collection',
+            'toCollection2' => 'collection',
 
             'toDate' => 'date',
 
