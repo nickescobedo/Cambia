@@ -35,6 +35,9 @@
     "scripts": {
         "lint": [
             "@php vendor/bin/phpstan analyse"
+        ],
+        "test": [
+            "@php vendor/bin/phpunit"
         ]
     }
 }

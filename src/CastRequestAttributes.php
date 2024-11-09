@@ -111,6 +111,10 @@ trait CastRequestAttributes
             case 'json':
                 return $this->fromJson($value);
             case 'collection':
+                if (is_array($value)) {
+                    return new BaseCollection($value);
+                }
+
                 return new BaseCollection($this->fromJson($value));
             case 'date':
                 return $this->asDate($value);

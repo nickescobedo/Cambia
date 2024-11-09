@@ -40,6 +40,7 @@ class CastTest extends TestCase
             'toJson' => '{"key":"value"}',
 
             'toCollection' => '[1,2,3]',
+            'toCollection2' => [1, 2, 3],
 
             'toDate' => '2021-01-01',
 
@@ -83,6 +84,7 @@ class CastTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $request->castedInput('toCollection'));
         $this->assertSame([1, 2, 3], $request->castedInput('toCollection')->all());
+        $this->assertSame([1, 2, 3], $request->castedInput('toCollection2')->all());
 
         $this->assertInstanceOf(Carbon::class, $request->castedInput('toDate'));
 
