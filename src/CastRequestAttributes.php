@@ -72,6 +72,11 @@ trait CastRequestAttributes
         return $this->attributes->get($key, $default);
     }
 
+    public function allCastedInput(): array
+    {
+        return $this->attributes->all();
+    }
+
     public function getCasts()
     {
         return $this->casts();
